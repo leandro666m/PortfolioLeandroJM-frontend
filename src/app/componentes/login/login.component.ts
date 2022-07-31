@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { LoginUsuario } from 'src/app/modelos/login-usuario';
 import { AuthService } from 'src/app/servicios/auth.service';
@@ -8,6 +9,7 @@ import { TokenService } from 'src/app/servicios/token.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  encapsulation:ViewEncapsulation.None,
   styleUrls: ['./login.component.css']
 })
 
@@ -25,13 +27,16 @@ export class LoginComponent implements OnInit {
   errMsj: string;
 
 
-  constructor( private tokenService: TokenService,
+  constructor( 
+
+    private tokenService: TokenService,
     private authService: AuthService, private router: Router,
-    private toastr: ToastrService  ) {   
+    private toastr: ToastrService ) {   
 
   }
 
   ngOnInit() {
+
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
@@ -70,5 +75,7 @@ export class LoginComponent implements OnInit {
     this.tokenService.logOut();
     window.location.reload();
   }
+
+  
 
 }

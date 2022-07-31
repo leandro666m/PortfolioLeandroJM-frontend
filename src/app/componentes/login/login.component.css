@@ -26,7 +26,6 @@
       box-sizing: border-box;
   }
   
-
   /*---------------------------------------------*/
   a {
       font-family: Poppins-Regular;
@@ -144,7 +143,7 @@
   
   .container-login100 {
     width: 100%;  
-    min-height: 100vh;
+    min-height: 80vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -169,7 +168,7 @@
   }
   
   .wrap-login100 {
-    width: 960px;
+    width: 100%;
     height: 700px;
     background: #fff;
     border-radius: 45px;
@@ -332,7 +331,7 @@
   }
   
   .botonLogin:hover {
-    background: #333333;
+    background: #333333;color: #fff;
   }
   
   

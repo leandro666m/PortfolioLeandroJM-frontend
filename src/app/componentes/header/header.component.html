@@ -7,7 +7,7 @@
 
       <div class="profile">
         <img src="./assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        <h1 class="text-light"> <a href="index.html">Alex Smith</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
           <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -19,8 +19,8 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a  routerLink="acerca-de" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="#home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#acerca" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#experiencias" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Experiencias</span></a></li>
           <li><a href="#educacion" class="nav-link scrollto"><i class="bx bxs-graduation"></i> <span>Educación</span></a></li>
           <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-book-reader"></i> <span>Hard & Soft Skills</span></a></li>
@@ -44,9 +44,25 @@
               Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               <br>
               <!-- <a *ngIf="isLogged" (click)="onLogOut()"  style="cursor: pointer;" routerLink="/login"> -->
-                <a *ngIf="isLogged" (click)="onLogOut()"  routerLink="/login">
+                <a *ngIf="isLogged" (click)="onLogOut()"  routerLink="">
               <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión </a>
             </div>           
             
-        </div>
-      </footer><!-- End  Footer -->
+            <!-- <a *ngIf="!isLogged"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            [routerLink]="[ {outlets: {modalLogin: ['login']}  }]">
+              <i class="fa-regular fa-circle-user"></i> Iniciar Sesión </a> -->
+          
+  <a *ngIf="!isLogged" routerLink="" (click)="openLogin(login)">
+      <i class="fa-solid fa-right-from-bracket"></i>  Iniciar Sesión </a> 
+        
+     
+
+
+    <ng-template #login>
+      <div >
+        <app-login></app-login>
+      </div>
+    </ng-template>
+
+  </div>
+</footer> 

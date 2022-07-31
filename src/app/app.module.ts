@@ -20,11 +20,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxTypedJsModule } from 'ngx-typed-js';//el tipeo en el Hero
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+ '@fortawesome/fontawesome-free'; '@fortawesome/fontawesome/common-types';'@fortawesome/fontawesome/svg-core';
+'@fortawesome/fontawesome/free-solid-svg-icons';'@fortawesome/fontawesome/free-brands-svg-icons'; 
 import { AngularTiltModule } from 'angular-tilt';
+import { SwiperModule } from 'swiper/angular';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [ AppComponent, LoginComponent, AcercaComponent, EducacionComponent,
-    ExperienciasComponent, HeaderComponent, HeroComponent, SkillsComponent, ProyectosComponent ],
+    ExperienciasComponent, HeaderComponent, HeroComponent, SkillsComponent, ProyectosComponent],
   
     imports: [
     BrowserModule, AppRoutingModule,
@@ -35,8 +42,10 @@ import { AngularTiltModule } from 'angular-tilt';
     CommonModule,
    ToastrModule.forRoot(),
     FontAwesomeModule,
-    BrowserAnimationsModule, AngularTiltModule
+    BrowserAnimationsModule, AngularTiltModule, SwiperModule,
+    NgbModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
