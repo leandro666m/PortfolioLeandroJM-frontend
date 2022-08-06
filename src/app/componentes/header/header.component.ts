@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TokenService } from 'src/app/servicios/token.service';
-
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from '../login/login.component';
+import { Persona } from 'src/app/modelos/persona.model';
+import { PersonaService } from 'src/app/servicios/persona.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 
 
 
@@ -14,10 +17,14 @@ import { LoginComponent } from '../login/login.component';
 
 export class HeaderComponent implements OnInit {
 
-
   isLogged = false;
-  
-  constructor(private modal:NgbModal,private tokenService: TokenService) { }
+  tiltSettings=({ scale: 1.1 });
+  roles: string[];
+  persona: Persona[]=[];
+//persona: Persona;
+
+  constructor( public personaServ: PersonaService,private modal:NgbModal,
+    private router: Router,private toastr: ToastrService,private tokenService: TokenService) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -25,16 +32,24 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+    this.cargarPersona();
   }
 
   onLogOut(): void {
     this.tokenService.logOut();
-    //window.location.reload();
+    window.location.reload();
   }
-
 
   openLogin(login:any): void{
     this.modal.open( login, { centered:true, size:'xl'});
+  }
+
+  cargarPersona(): void{
+    this.personaServ.getPersonas().subscribe(
+      data => { this.persona = data},
+      err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-acerca.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });
+          this.router.navigate(['/'])  }
+    );
   }
 
 }

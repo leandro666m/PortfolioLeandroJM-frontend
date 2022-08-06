@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-experiencias',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienciasComponent implements OnInit {
 
-  constructor() { }
+  constructor( private offcanvasService: NgbOffcanvas ) { }
 
   ngOnInit(): void {
   }
 
+  openDer(experienciasEdit: TemplateRef<any>) {
+    this.offcanvasService.open(experienciasEdit, { position: 'end' });
+  }
 }

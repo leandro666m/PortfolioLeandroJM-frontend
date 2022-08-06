@@ -26,13 +26,8 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   errMsj: string;
 
-
-  constructor( 
-
-    private tokenService: TokenService,
-    private authService: AuthService, private router: Router,
-    private toastr: ToastrService ) {   
-
+  constructor( private tokenService: TokenService, private authService: AuthService, 
+    private router: Router, private toastr: ToastrService ) {   
   }
 
   ngOnInit() {
@@ -46,11 +41,10 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe(
+    this.loginUsuario = new LoginUsuario( this.nombreUsuario, this.password );
+    this.authService.login( this.loginUsuario ).subscribe(
       data => {
         this.isLogged = true;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
@@ -59,6 +53,7 @@ export class LoginComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/portfolio']);
+        window.location.reload();
       },
       err => {
         this.isLogged = false;
@@ -71,11 +66,11 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  onLogOut(): void {
+/*   onLogOut(): void {
     this.tokenService.logOut();
     window.location.reload();
   }
-
+ */
   
 
 }

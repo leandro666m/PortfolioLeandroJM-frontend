@@ -1,10 +1,13 @@
-<!-- ======= About Section ======= -->
+
+
 <section id="about" class="about">
     <div class="container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
+      (click)="openAbout(aboutEdit)" ><i class="far fa-edit"></i> Editar</button> 
+   
+         <div class="section-title">
+        <h2>Acerca de mí</h2>
+        <p *ngFor="let per of persona"> {{per.comentario}}  </p>  
       </div>
 
       <div class="row">
@@ -22,7 +25,7 @@
             <div class="col-lg-6">
               <ul>
                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
+                <!-- <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{persona.web}}</span></li> -->
                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
               </ul>
@@ -44,9 +47,8 @@
       </div>
 
     </div>
-  </section><!-- End About Section -->
-
-   <!-- ======= Facts Section ======= -->
+  </section>
+  
    <section id="facts" class="facts">
     <div class="container">
 
@@ -90,7 +92,73 @@
         </div>
 
       </div>
-
+    
     </div>
-  </section><!-- End Facts Section -->
+  </section>
+  
+<ng-template #aboutEdit>
+
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title">Acerca de</h4>    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvasService.dismiss()"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <form class="about-form"  #f="ngForm" (ngSubmit)="onUpdateAcerca()" novalidate>
+      <div class="form-floating">
+       <!--  <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 100px" 
+        [(ngModel)]="persona.comentario" name="comentario"> </textarea> -->
+        <span class="focus-miInputBox"></span>
+         <label for="floatingTextarea2">Comentario</label>
+      </div>
+
+      <div class="input-group mb-5">
+        <form class="row row-cols-sm-auto">
+                <div class="col-12"> 
+                  <p>Fecha de nacimiento:</p>
+                  <div class="input-group "> 
+                    <!-- <input class="form-control miInputBox" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="persona.fechaNac" ngbDatepicker #d="ngbDatepicker">  
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">  <i class='bx bx-calendar'></i> </button>-->
+                    <span class="focus-miInputBox"></span>
+                  </div>
+                </div>
+        </form>
+      </div>
+
+      <div class="input-group mb-3 ">
+        <span class="input-group-text" id="inputGroup-sizing-default">Edad</span>
+        <!-- <input type="number" min="18" max="100" class="form-control miInputBox" [(ngModel)]="persona.edad" name="edad">  -->
+        <span class="focus-miInputBox"></span>
+      </div>
+
+    <div class="input-group mb-3 ">
+      <span class="input-group-text" id="inputGroup-sizing-default">Teléfono</span>
+      <!-- <input type="text" class="form-control miInputBox" [(ngModel)]="persona.telefono" name="telefono"> <span class="focus-miInputBox"></span> -->
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Ciudad</span>
+      <!-- <input type="text" class="form-control miInputBox" [(ngModel)]="persona.ciudad" name="ciudad"> <span class="focus-miInputBox"></span> -->
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"  placeholder="www.miweb.com.ar">Web</span>
+      <!-- <input type="text" class="form-control miInputBox" [(ngModel)]="persona.web" name="web"> <span class="focus-miInputBox"></span> -->
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default"  placeholder="email@email.com">Email</span>
+        <!-- <input type="email" class="form-control  miInputBox" id="exampleInputEmail1" [(ngModel)]="persona.email" name="email"> <span class="focus-miInputBox"></span> -->
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+      <!-- <input type="text" class="form-control miInputBox" [(ngModel)]="persona.titulo" name="titulo"> <span class="focus-miInputBox"></span> -->
+    </div>
+          
+          
+    </form>
+
+    <div class="text-end">
+      <button type="button" class="btn miBoton" aTilt [tiltSettings]="tiltSettings">Actualizar</button>
+    </div>
+  </div>
+
+</ng-template>
+
 

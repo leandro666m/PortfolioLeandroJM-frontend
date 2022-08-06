@@ -37,8 +37,8 @@
             </div>
         </div>
     </div>
-</ng-template> -->
-<!-- 
+</ng-template> 
+
 <div class="text-center container-login100 " *ngIf="isLogged; else loggedOut">
  
   
@@ -56,44 +56,41 @@
   
   <ng-template #loggedOut>
  -->
-	<div class="container-login100 ">
-			<div class="wrap-login100">
+	
+ <div class="container-login100 ">
+    <div class="wrap-login100">
 
-				<div class="login-foto" aTilt [tiltSettings]="tiltSettings">
-                    <i class="fa-solid fa-user-tie  icono"></i>
-					 
-				</div>
+        <div class="login-foto" aTilt [tiltSettings]="tiltSettings">
+            <i class="fa-solid fa-user-tie  icono"></i>
+        </div>
 
-				<form class="login-form"  #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-					<span class="login-form-titulo">
-						 Iniciar sesión
-					</span>
+        <form class="login-form"  #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+            <span class="login-form-titulo">
+                    Iniciar sesión
+            </span>
 
-					<div class="ingreso">
-						<input class="inputUsrPass" type="text" name="nombreUsuario" placeholder="Usuario" name="nombreUsuario" [(ngModel)]="nombreUsuario" required>
-						<span class="focus-inputUsrPass"> </span>
-						<span class="symbol-inputUsrPass"><i class="fa fa-user-tie" aria-hidden="true"></i> </span>
-					</div>
+            <div class="ingreso">
+                <input class="miInputBox" type="text" name="nombreUsuario" placeholder="Usuario" name="nombreUsuario" [(ngModel)]="nombreUsuario" required>
+                <span class="focus-miInputBox"> </span>
+                <span class="symbol-miInputBox"><i class="fa fa-user-tie" aria-hidden="true"></i> </span>
+            </div>
 
-					<div class="ingreso">
-						<input class="inputUsrPass" type="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required>
-						<span class="focus-inputUsrPass"> </span>
-						<span class="symbol-inputUsrPass"> <i class="fa fa-lock" aria-hidden="true"></i> </span>
-					</div>
-					
-						<button class="btn botonLogin" [disabled]="!f.valid" aTilt [tiltSettings]="tiltSettings"> Iniciar </button>
+            <div class="ingreso">
+                <input class="miInputBox" type="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required>
+                <span class="focus-miInputBox"> </span>
+                <span class="symbol-miInputBox"> <i class="fa fa-lock" aria-hidden="true"></i> </span>
+            </div>
+            
+            <button class="btn miBoton" [disabled]="!f.valid" aTilt [tiltSettings]="tiltSettings"> Iniciar </button>
 
+            <!-- <div class="text-center">
+                <a class="crearCuenta" routerLink="/registro">Crear cuenta</a>
+            </div> -->
 
+        </form>
 
-					<!-- <div class="text-center">
-						<a class="crearCuenta" routerLink="/registro">Crear cuenta</a>
-					</div> -->
-
-				</form>
-
-			</div>
-		</div>
+    </div>
+</div>
 
      
-
-
+      

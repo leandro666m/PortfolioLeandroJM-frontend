@@ -26,6 +26,7 @@
   .about .content p:last-child {
     margin-bottom: 0;
   }
+
   
   /*---- # Facts----*/
   .facts {
@@ -69,3 +70,7 @@
   .facts .count-box a:hover {
     color: #1f5297;
   }
+
+  /*----------------------------------------------------------------*/
+ 
+ 

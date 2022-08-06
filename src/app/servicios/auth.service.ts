@@ -13,6 +13,7 @@ import { NuevoUsuario } from '../modelos/nuevo-usuario';
 export class AuthService {
 
   authURL = 'http://localhost:8080/auth/';
+  //authURL = 'http://localhost:8080/';
 
   constructor(private httpClient: HttpClient) { }
 

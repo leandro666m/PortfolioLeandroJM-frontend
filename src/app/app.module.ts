@@ -29,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 @NgModule({
   declarations: [ AppComponent, LoginComponent, AcercaComponent, EducacionComponent,
     ExperienciasComponent, HeaderComponent, HeroComponent, SkillsComponent, ProyectosComponent],

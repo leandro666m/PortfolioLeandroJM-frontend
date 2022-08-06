@@ -35,7 +35,6 @@
             "scripts": [
               "src/assets/js/main.js",
               "node_modules/aos/dist/aos.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
             ]
 
