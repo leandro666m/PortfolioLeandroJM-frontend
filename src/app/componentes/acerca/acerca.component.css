@@ -30,7 +30,8 @@
   
   /*---- # Facts----*/
   .facts {
-    padding-bottom: 30px;
+    padding-bottom: 50px;
+    padding-top: 80px;
   }
   .facts .count-box {
     padding: 30px;
@@ -38,8 +39,8 @@
   }
   .facts .count-box i {
     display: block;
-    font-size: 44px;
-    color: #149ddd;
+    font-size: 64px;
+    color: #3d224b;
     float: left;
     line-height: 0;
   }

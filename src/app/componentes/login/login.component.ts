@@ -49,18 +49,14 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
+        this.toastr.success('Bienvenido ' + data.nombreUsuario, 'OK', {timeOut: 3000, positionClass: 'toast-top-center' });
         this.router.navigate(['/portfolio']);
         window.location.reload();
       },
       err => {
         this.isLogged = false;
         this.errMsj = err.error.message;
-        this.toastr.error(this.errMsj, 'Error', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
-        });
+        this.toastr.error(this.errMsj, 'Error', { timeOut: 3000,  positionClass: 'toast-top-center',  });
          console.log(err.error.message);
       }
     );

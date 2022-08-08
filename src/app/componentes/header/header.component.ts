@@ -4,7 +4,7 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { Persona } from 'src/app/modelos/persona.model';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -16,24 +16,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'] })
 
 export class HeaderComponent implements OnInit {
-
-  isLogged = false;
-  tiltSettings=({ scale: 1.1 });
-  roles: string[];
-  persona: Persona[]=[];
-//persona: Persona;
-
+    
   constructor( public personaServ: PersonaService,private modal:NgbModal,
-    private router: Router,private toastr: ToastrService,private tokenService: TokenService) { }
-
-  ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+    private router: Router, private toastr: ToastrService,private tokenService: TokenService) { }
+    
+    isLogged = false;
+    tiltSettings=({ scale: 1.1 });    
+    persona: Persona;
+  
+    ngOnInit(): void {
+    this.persona = { nombre: '', apellido: '', comentario: '', web: '', edad: 0, telefono: '', ciudad: '', email: '', titulo: '' };
+      if (this.tokenService.getToken()) {
+          this.isLogged = true;
+        } else {
+          this.isLogged = false;
+      } 
     this.cargarPersona();
-  }
+    }
+  
+    public cargarPersona(): void{
+      const id = 1;
+      this.personaServ.getPersona(id).subscribe(
+        data => { this.persona = data },
+        err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-header.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });
+            this.router.navigate(['/'])  }
+      );
+    }
 
   onLogOut(): void {
     this.tokenService.logOut();
@@ -44,13 +52,8 @@ export class HeaderComponent implements OnInit {
     this.modal.open( login, { centered:true, size:'xl'});
   }
 
-  cargarPersona(): void{
-    this.personaServ.getPersonas().subscribe(
-      data => { this.persona = data},
-      err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-acerca.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });
-          this.router.navigate(['/'])  }
-    );
-  }
+
+
 
 }
 

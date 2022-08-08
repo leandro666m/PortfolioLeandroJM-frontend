@@ -1,4 +1,4 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* 
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -17,22 +17,25 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
+    "target": "ES2020",
+    "module": "ESNext",
     "lib": [
-      "es2020",
+      "ES2020",
       "dom"
     ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false,
   }
-}
+} 
+ */
 
-/*-------------------------------------
+
+//del proyecto d eproductos 
+
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -45,8 +48,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
     "typeRoots": [
@@ -59,4 +60,3 @@
   }
 }
 
-*/

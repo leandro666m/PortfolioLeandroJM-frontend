@@ -148,22 +148,19 @@
     font-size: 14px;
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 10px;
     width: 300px;
     z-index: 9999;
-    /* background: #040b14; */
-    
-    background: -webkit-linear-gradient(181deg, #212259, #462146);
-    background: -o-linear-gradient(181deg, #212259, #462146);
-    background: -moz-linear-gradient(181deg, #212259, #462146);
-    background: linear-gradient(181deg, #212259, #462146);
-  }
-  #footer .copyright {
     text-align: center;
   }
+
+  #footer .logoAP {
+    margin: 10px auto;
+    width: 115px;
+  }
+
   #footer .credits, a {
     padding-top: 5px;
-    text-align: center;
     font-size: 13px;
     color: #eaebf0;
   }

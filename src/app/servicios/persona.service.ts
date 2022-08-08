@@ -13,6 +13,10 @@ URL = 'http://localhost:8080/portfolio/';
 
 constructor( private httpCliente: HttpClient ) { }
 
+public getPersona(id: number): Observable<Persona> {
+  return this.httpCliente.get<Persona>( this.URL + `getPersona/${id}`);
+}
+
 public getPersonas(): Observable<Persona[]> {
   return this.httpCliente.get<Persona[]>( this.URL + 'getPersonas' );
 }
@@ -20,11 +24,8 @@ public getPersonas(): Observable<Persona[]> {
 public updatePersona( id: number, persona: Persona ): Observable<any> {
   return this.httpCliente.put<any>( this.URL + `editar/${id}`, persona );
 }
-
-
 }
 /*
-
   productoURL = 'http://localhost:8080/producto/';
 
   constructor(private httpClient: HttpClient) { }
