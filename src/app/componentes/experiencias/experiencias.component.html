@@ -1,10 +1,13 @@
 
   <section id="Experiencias" class="resume">
     <div class="container">
-      <button  class="btn btn-outline-warning" routerLink="" (click)="openDer(experienciasEdit)" ><i class="far fa-edit"></i> Editar</button> 
+
+      <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
+      (click)="openExp(expEdit)" ><i class="far fa-edit"></i> Editar</button> 
+
       <div class="section-title">
-        <h2>Resume</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>Experiencias</h2>
+        <p> Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
 
       <div class="row">
@@ -64,18 +67,35 @@
     </div>
   </section>
 
-  <ng-template #experienciasEdit>
-    <div>
-      <div class="resume-item">
-        <h4>Graphic design specialist</h4>
-        <h5>2017 - 2018</h5>
-        <p><em>Stepping Stone Advertising, New York, NY</em></p>
-        <ul>
-          <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-          <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-          <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-          <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-        </ul>
-      </div>
+  <!-- Formulario de Edicion -->
+
+  <ng-template #expEdit>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">Experiencias</h4> <button type="button" class="btn-close" aria-label="Close"
+        (click)="offcanvasService.dismiss()"></button>
     </div>
-</ng-template>
+  
+    <div class="offcanvas-body">
+  
+      <form (ngSubmit)="onUpdateExp()" class="about-form" #formAbout="ngForm"  novalidate>
+         <div class="form-floating form-group">
+          <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 100px"
+            [(ngModel)]="persona.comentario" name="comentario"> </textarea>     <span class="focus-miInputBox"></span>
+          <label for="floatingTextarea2">Comentario</label>
+        </div> 
+  
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Edad</span>
+          <input type="number" min="18" max="100" class="form-control miInputBox" [(ngModel)]="persona.edad" name="edad"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="col-5 float-end form-group">
+          <button type="submit" class="btn miBoton"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>
+        </div>
+
+      </form>
+
+    </div>
+    
+    </ng-template>
+    

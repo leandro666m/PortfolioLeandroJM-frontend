@@ -25,7 +25,7 @@ export class HeroComponent implements OnInit {
 
   public cargarPersona(): void{
     //const id = this.activatedRoute.snapshot.params['id'];
-    const id = 1;
+    const id = 0;
     this.personaServ.getPersona(id).subscribe(
       data => { this.persona = data },
       err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-hero.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });

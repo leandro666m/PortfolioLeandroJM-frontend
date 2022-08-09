@@ -1,15 +1,21 @@
 <div id="main">
     <app-header> </app-header>
      <app-hero id="home"> </app-hero> 
-    
      
      <app-acerca id="acerca"> </app-acerca>
-
     
-    <app-experiencias id="experiencias">     </app-experiencias>
+    <app-experiencias id="experiencias"
+    [isAdmin]="isAdmin" 
+    [id]="id"
+    [persona]="persona"
+    >
+     </app-experiencias>
 
     <app-educacion id="educacion"></app-educacion>
+
     <app-skills id="skills"></app-skills>
+
     <app-proyectos id="proyectos"></app-proyectos>
+
 </div>
 

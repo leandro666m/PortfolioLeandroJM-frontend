@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     }
   
     public cargarPersona(): void{
-      const id = 1;
+      const id = 0;
       this.personaServ.getPersona(id).subscribe(
         data => { this.persona = data },
         err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-header.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });
