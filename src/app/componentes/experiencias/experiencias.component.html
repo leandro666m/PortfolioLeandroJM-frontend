@@ -1,29 +1,27 @@
 
-  <section id="Experiencias" class="resume">
+  <section id="Experiencias" class="resume" *ngIf="load">
     <div class="container">
-
-      <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
-      (click)="openExp(expEdit)" ><i class="far fa-edit"></i> Editar</button> 
 
       <div class="section-title">
         <h2>Experiencias</h2>
-        <p> Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
 
       <div class="row">
         <div class="col-lg-6" data-aos="fade-up">
-          <h3 class="resume-title">Sumary</h3>
+          <h3 class="resume-title">Resumen</h3>
+          
           <div class="resume-item pb-0">
-            <h4>Alex Smith</h4>
-            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-            <ul>
-              <li>Portland par 127,Orlando, FL</li>
-              <li>(123) 456-7891</li>
-              <li>alice.barkley@example.com</li>
-            </ul>
+            <span *ngFor="let exp of experiencia">
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
+               (click)="openExp(expEdit)" (click)="identif(exp.id)"><i class="far fa-edit"></i> Editar</button> 
+                      <h4>{{exp.puesto}}</h4>
+                      <h5>{{exp.lugar}}</h5>
+                      <p><em>{{exp.fecha}}.</em></p>
+                      <p>{{exp.descripcion}}</p>
+            </span>
           </div>
 
-          <h3 class="resume-title">Education</h3>
+    <!--       <h3 class="resume-title">Education</h3>
           <div class="resume-item">
             <h4>Master of Fine Arts &amp; Graphic Design</h4>
             <h5>2015 - 2016</h5>
@@ -60,7 +58,7 @@
               <li>Recommended and consulted with clients on the most appropriate graphic design</li>
               <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -78,16 +76,28 @@
     <div class="offcanvas-body">
   
       <form (ngSubmit)="onUpdateExp()" class="about-form" #formAbout="ngForm"  novalidate>
-         <div class="form-floating form-group">
-          <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 100px"
-            [(ngModel)]="persona.comentario" name="comentario"> </textarea>     <span class="focus-miInputBox"></span>
-          <label for="floatingTextarea2">Comentario</label>
-        </div> 
-  
+
         <div class="input-group mb-3 form-group">
-          <span class="input-group-text" id="inputGroup-sizing-default">Edad</span>
-          <input type="number" min="18" max="100" class="form-control miInputBox" [(ngModel)]="persona.edad" name="edad"> <span class="focus-miInputBox"></span>
+          <span class="input-group-text" id="inputGroup-sizing-default">Puesto</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].puesto" name="Puesto"> <span class="focus-miInputBox"></span>
         </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Lugar</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].lugar" name="Lugar"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].fecha" name="Fecha"> <span class="focus-miInputBox"></span>
+        </div>
+
+         <div class="form-floating form-group">
+          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 100px"
+            [(ngModel)]="experiencia[idselecc].descripcion" name="Descripción"> </textarea>     <span class="focus-miInputBox"></span>
+          <label for="floatingTextarea2">Descripción</label>
+        </div> 
+
 
         <div class="col-5 float-end form-group">
           <button type="submit" class="btn miBoton"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>

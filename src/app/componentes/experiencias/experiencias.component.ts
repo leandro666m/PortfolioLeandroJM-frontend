@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { Experiencia } from 'src/app/modelos/experiencia.model';
 import { Persona } from 'src/app/modelos/persona.model';
 import { PersonaService } from 'src/app/servicios/persona.service';
 
@@ -13,29 +15,48 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 
 export class ExperienciasComponent implements OnInit {
 
-  @Input() isAdmin:string;
-  @Input()  persona: Persona;
-  @Input() id: number;
-  
   constructor( private toastr: ToastrService, public personaServ: PersonaService,
-    public offcanvasService: NgbOffcanvas ) { }
+    public offcanvasService: NgbOffcanvas, private router: Router ) { }
 
-  ngOnInit(): void {
+    @Input() isAdmin: boolean;
+    tiltSettings=({ scale: 1.1 });
+    experiencia: Experiencia[] = [];
+    idselecc: number;
+    load: boolean;
+
+  ngOnInit(): void {  
+   this.cargarExperiencias();
+  }
+
+  public cargarExperiencias(): void {
+    this.personaServ.getExperiencias().subscribe(
+      (data) => { this.experiencia = data; this.load=true; },
+      (err) => {
+        this.toastr.error(err.error.mensaje, 'Error exp.component', {
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
+        });
+        this.router.navigate(['/']);
+      }
+    );
   }
 
   openExp(expEdit: TemplateRef<any>) {
     this.offcanvasService.open(expEdit, { position: 'end' });
   }
+  identif(id: number){
+    this.idselecc = id;
+  }
 
   onUpdateExp( ): void{
-    this.personaServ.updatePersona( this.id, this.persona ).subscribe(
+    this.personaServ.updateExperiencia( this.idselecc, this.experiencia[this.idselecc] ).subscribe(
       data => { this.toastr.success('Actualizado', '', {timeOut: 3000, positionClass: 'toast-top-center'});
                   this.offcanvasService.dismiss() },
       err => { this.toastr.error(err.error.mensaje, 'Error', {timeOut: 3000,  positionClass: 'toast-top-center', });
                   console.log(err);       
       }
     );  
-  }
+  } 
 
 
 }

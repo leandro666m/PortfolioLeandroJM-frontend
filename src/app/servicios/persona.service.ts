@@ -1,13 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Educacion } from '../modelos/educacion.model';
+import { Experiencia } from '../modelos/experiencia.model';
 import { Persona } from '../modelos/persona.model';
+import { Skill } from '../modelos/skill.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class PersonaService {
+
   
 URL = 'http://localhost:8080/portfolio/';
 
@@ -17,40 +21,49 @@ public getPersona(id: number): Observable<Persona> {
   return this.httpCliente.get<Persona>( this.URL + `getPersona/${id}`);
 }
 
-public getPersonas(): Observable<Persona[]> {
-  return this.httpCliente.get<Persona[]>( this.URL + 'getPersonas' );
-}
-
 public updatePersona( id: number, persona: Persona ): Observable<any> {
   return this.httpCliente.put<any>( this.URL + `editar/${id}`, persona );
 }
+
+//-------------Experiencias------------------------------------------------------------
+
+public getExperiencias(): Observable<Experiencia[]> {
+  return this.httpCliente.get<Experiencia[]>( this.URL + 'getExperiencias' );
 }
-/*
-  productoURL = 'http://localhost:8080/producto/';
 
-  constructor(private httpClient: HttpClient) { }
+public updateExperiencia( id: number, experiencia: Experiencia ): Observable<any> {
+  return this.httpCliente.put<any>( this.URL + `editarExp/${id}`, experiencia );
+}
+//-------------Educacion------------------------------------------------------------
 
-  public lista(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
-  }
+public getEducacion(): Observable<Educacion[]> {
+  return this.httpCliente.get<Educacion[]>( this.URL + 'getEducacion' );
+}
+public updateEducacion( id: number, educ: Educacion ): Observable<any> {
+  return this.httpCliente.put<any>( this.URL + `editarEduc/${id}`, educ );
+}
 
-  public detail(id: number): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`);
-  }
+public delete(id: number): Observable<any> {
+  return this.httpCliente.delete<any>(this.URL + `borrarEduc/${id}`);
+}
 
-  public detailName(nombre: string): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
-  }
+//-------------Skills------------------------------------------------------------
 
-  public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'create', producto);
-  }
+public getSkills(): Observable<Skill[]> {
+  return this.httpCliente.get<Skill[]>( this.URL + 'getSkills' );
+}
+public updateSkill( id: number, skill: Skill ): Observable<any> {
+  return this.httpCliente.put<any>( this.URL + `editarSkill/${id}`, skill );
+}
 
-  public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto);
-  }
+//-------------Proyectos------------------------------------------------------------
 
-  public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
-  }
-*/
+/* public getProyectos(): Observable<Proyectos[]> {
+  return this.httpCliente.get<Skill[]>( this.URL + 'getSkills' );
+}
+public updateProyectos( id: number, skill: Skill ): Observable<any> {
+  return this.httpCliente.put<any>( this.URL + `editarSkill/${id}`, skill );
+} */
+
+
+}

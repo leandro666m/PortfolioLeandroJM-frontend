@@ -1,64 +1,84 @@
-  <!-- ======= Skills Section ======= -->
-  <section id="skills" class="skills section-bg">
+
+  <section id="skills" class="skills section-bg"  *ngIf="load">
     <div class="container">
 
       <div class="section-title">
-        <h2>Skills</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <h2>Hard & Soft Skills</h2>
       </div>
 
       <div class="row skills-content">
 
-        <div class="col-lg-6" data-aos="fade-up">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[0].id)"><i class="far fa-edit"></i> </button> 
+              <div class="progress" data-aos="fade-up" data-aos-delay="150">
+                <span class="skill">{{skills[0].nombreSkill}} <i class="val">{{skills[0].nivel}}%</i></span>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[0].nivel}}%"></div>
+              </div>
 
-          <div class="progress">
-            <span class="skill">HTML <i class="val">100%</i></span>
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-          </div>
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[1].id)"><i class="far fa-edit"></i> </button> 
+              <div class="progress" data-aos="fade-up" data-aos-delay="300">
+                <span class="skill">{{skills[1].nombreSkill}} <i class="val">{{skills[1].nivel}}%</i></span>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[1].nivel}}%"></div>
+              </div>
 
-          <div class="progress">
-            <span class="skill">CSS <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
-          <div class="progress">
-            <span class="skill">JavaScript <i class="val">75%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-          </div>
-
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[2].id)"><i class="far fa-edit"></i> </button> 
+              <div class="progress" data-aos="fade-up" data-aos-delay="450">
+                <span class="skill">{{skills[2].nombreSkill}} <i class="val">{{skills[2].nivel}}%</i></span>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[2].nivel}}%"></div>
+              </div>
         </div>
 
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="progress">
-            <span class="skill">PHP <i class="val">80%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+          <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[3].id)"><i class="far fa-edit"></i> </button> 
+            <div class="progress" data-aos="fade-up" data-aos-delay="150">
+              <span class="skill">{{skills[3].nombreSkill}} <i class="val">{{skills[3].nivel}}%</i></span>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[3].nivel}}%"></div>
             </div>
-          </div>
 
-          <div class="progress">
-            <span class="skill">WordPress/CMS <i class="val">90%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[4].id)"><i class="far fa-edit"></i> </button> 
+            <div class="progress" data-aos="fade-up" data-aos-delay="300">
+              <span class="skill">{{skills[4].nombreSkill}} <i class="val">{{skills[4].nivel}}%</i></span>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[4].nivel}}%"></div>
             </div>
-          </div>
 
-          <div class="progress">
-            <span class="skill">Photoshop <i class="val">55%</i></span>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[5].id)"><i class="far fa-edit"></i> </button> 
+            <div class="progress" data-aos="fade-up" data-aos-delay="450">
+              <span class="skill">{{skills[5].nombreSkill}} <i class="val">{{skills[5].nivel}}%</i></span>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[5].nivel}}%"></div>
             </div>
-          </div>
-
-        </div>
-
       </div>
 
+      </div>
     </div>
-  </section><!-- End Skills Section -->
+  </section>
+
+
+    <!-- Formulario de Edicion -->
+
+    <ng-template #skillEdit>
+      <div class="offcanvas-header">
+        <h4 class="offcanvas-title">Skills</h4> <button type="button" class="btn-close" aria-label="Close"
+          (click)="offcanvasService.dismiss()"></button>
+      </div>
+    
+      <div class="offcanvas-body">
+    
+        <form (ngSubmit)="onUpdateSkill()" class="about-form" #formAbout="ngForm"  novalidate>
+  
+          <div class="input-group mb-3 form-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Skill</span>
+            <input type="text" class="form-control miInputBox" [(ngModel)]="skills[idselecc].nombreSkill" name="Skill"> <span class="focus-miInputBox"></span>
+          </div>
+  
+          <div class="input-group mb-3 form-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nivel</span>
+            <input type="text" class="form-control miInputBox" [(ngModel)]="skills[idselecc].nivel" name="Nivel"> <span class="focus-miInputBox"></span>
+          </div>
+
+          <div class="col-5 float-end form-group">
+            <button type="submit" class="btn miBoton"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>
+          </div>
+        </form>
+      </div>
+    </ng-template>
 

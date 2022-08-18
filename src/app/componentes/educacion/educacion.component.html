@@ -1,46 +1,92 @@
  
     
-    <section id="educacion" class="educacion">
+    <section id="educacion" class="educacion" *ngIf="load">
         <div class="container">
   
           <div class="section-title">
-            <h2>Services</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Educación</h2>
           </div>
-  
+
           <div class="row">
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bi bi-briefcase"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bi bi-card-checklist"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
+                <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[0].id)"><i class="far fa-edit"></i> </button>
+                  <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[2].id)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button>  
+                  <div class="icon"><i class="bi bi-briefcase"></i></div>
+                  <h4 class="title">{{educacion[0].titulo}}</h4>
+                  <h6 class="title"><a href="">{{educacion[0].lugar}}</a></h6>
+                  <p class="title">{{educacion[0].fecha}}</p>
+                  <p class="description">{{educacion[0].descripcion}}</p>
+                </div>
+                
+
             <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bi bi-bar-chart"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[1].id)"><i class="far fa-edit"></i> </button>
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[2].id)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button>  
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h4 class="title">{{educacion[1].titulo}}</h4>
+              <h6 class="title"><a href="">{{educacion[1].lugar}}</a></h6>
+              <p class="title">{{educacion[1].fecha}}</p>
+              <p class="description">{{educacion[1].descripcion}}</p>
             </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><i class="bi bi-binoculars"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        
+
+            <div *ngIf="educacion[2]" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-pencil"></i> </button> 
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[2].id)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button> 
+              <div class="icon"><i class="bi bi-briefcase"></i></div>
+              <h4 class="title">{{educacion[2].titulo}}</h4>
+              <h6 class="title"><a href="">{{educacion[2].lugar}}</a></h6>
+              <p class="title">{{educacion[2].fecha}}</p>
+              <p class="description">{{educacion[2].descripcion}}</p>
             </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-              <div class="icon"><i class="bi bi-brightness-high"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-              <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
+
           </div>
-  
+
+          <!-- <button class="" routerLink="" (click)="onDeleteEduc(educacion[2].id)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button>  -->
         </div>
-      </section><!-- End Services Section -->
   
+        
+      </section>
+  
+       <!-- Formulario de Edicion -->
+
+  <ng-template #educEdit>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title">Educación</h4> <button type="button" class="btn-close" aria-label="Close" (click)="offcanvasService.dismiss()"></button>
+    </div>
+  
+    <div class="offcanvas-body">
+  
+      <form (ngSubmit)="onUpdateEduc()" class="about-form" #formAbout="ngForm"  novalidate>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Título</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].titulo" name="Titulo"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Lugar</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].lugar" name="Lugar"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="educacion[idselecc].fecha" name="Fecha"> <span class="focus-miInputBox"></span>
+        </div>
+
+         <div class="form-floating form-group">
+          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 200px"
+            [(ngModel)]="educacion[idselecc].descripcion" name="Descripción"> </textarea>     <span class="focus-miInputBox"></span>
+          <label for="floatingTextarea2">Descripción</label>
+        </div> 
+
+
+        <div class="col-5 float-end form-group">
+          <button type="submit" class="btn miBoton"  aTilt [tiltSettings]="tiltSettings" > Actualizar </button>
+        </div>
+
+      </form>
+
+    </div>
+    
+    </ng-template>

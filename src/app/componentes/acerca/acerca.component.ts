@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, Injectable, Input, OnInit, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
@@ -16,38 +16,15 @@ import { TokenService } from 'src/app/servicios/token.service';
  })
 
 export class AcercaComponent implements OnInit {
-
-  constructor( public personaServ: PersonaService,public offcanvasService: NgbOffcanvas,
-    private toastr: ToastrService, private tokenService: TokenService,
-    private router: Router ) { 
-    }
-
-  model: NgbDateStruct;
+  @Input() isAdmin: boolean;
+  @Input() persona: Persona;
+  @Input() id: number;
   tiltSettings=({ scale: 1.1 });
-  roles: string[];
-  isAdmin = false;
-  persona: Persona;
-  id: number = 0;
 
-  ngOnInit(): void {
-    this.persona = { nombre: '', apellido: '', comentario: '', web: '', edad: 0, telefono: '', ciudad: '', email: '', titulo: '' };
-    this.cargarPersona();
-    this.cargarRoles();
-  }
+  constructor( public personaServ: PersonaService,public offcanvasService: NgbOffcanvas, 
+    private toastr: ToastrService) { }
 
-  cargarRoles():void{
-    //para que se muestre el boton editar si es admin
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach( rol => { if (rol === 'ROLE_ADMIN') { this.isAdmin = true }   });
-  }
-
-  public cargarPersona(): void{
-    this.personaServ.getPersona(this.id).subscribe(
-      data => { this.persona = data},
-      err => { this.toastr.error(err.error.mensaje, 'Error ngOnInit()-acerca.component', {timeOut: 3000,  positionClass: 'toast-top-center',  });
-          this.router.navigate(['/'])  }
-    );
-  }
+  ngOnInit(): void {  }
 
   openAbout( aboutEdit: any  ): void{
     this.offcanvasService.open( aboutEdit , { position: 'end'});
@@ -62,8 +39,6 @@ export class AcercaComponent implements OnInit {
       }
     );  
   }
-
-
 
 }
 
