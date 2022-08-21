@@ -3,10 +3,10 @@
 <section id="about" class="about">
     <div class="container">
       <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
-      (click)="openAbout(aboutEdit)" ><i class="far fa-edit"></i> Editar</button> 
+      (click)="openAbout(aboutEdit)" ><i class="far fa-edit"></i> </button> 
    
          <div class="section-title">
-        <h2>Acerca de mí</h2>
+        <h2>Sobre mí</h2>
         <p> {{persona.comentario}}  </p>  
       </div>
 
@@ -17,10 +17,6 @@
 
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>{{persona.titulo}}.</h3>
-<!--           <p class="fst-italic">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-          </p> -->
           <div class="row">
             <div class="col-lg-6">
               <ul>
@@ -93,7 +89,7 @@
 
     <form (ngSubmit)="onUpdateAcerca()" class="about-form" #formAbout="ngForm"  novalidate>
        <div class="form-floating form-group">
-        <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 100px"
+        <textarea class="form-control miInputBox" placeholder="Comentario" id="floatingTextarea2" style="height: 200px"
           [(ngModel)]="persona.comentario" name="comentario"> </textarea>     <span class="focus-miInputBox"></span>
         <label for="floatingTextarea2">Comentario</label>
       </div> 

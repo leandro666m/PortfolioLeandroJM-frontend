@@ -43,4 +43,6 @@ export class HeaderComponent implements OnInit {
   openLogin(login: any): void {
     this.modal.open(login, { centered: true, size: 'xl' });
   }
+
+
 }

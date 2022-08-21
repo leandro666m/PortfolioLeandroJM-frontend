@@ -10,41 +10,47 @@
 
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[0].id)"><i class="far fa-edit"></i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[0].id)" (click)="identif(skills[0].id)"><i class="fa-solid fa-trash-can"></i> </button> 
               <div class="progress" data-aos="fade-up" data-aos-delay="150">
                 <span class="skill">{{skills[0].nombreSkill}} <i class="val">{{skills[0].nivel}}%</i></span>
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[0].nivel}}%"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuemin="0" aria-valuemax="100" style="width: {{skills[0].nivel}}%"></div>
               </div>
 
               <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[1].id)"><i class="far fa-edit"></i> </button> 
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[1].id)" (click)="identif(skills[1].id)"><i class="fa-solid fa-trash-can"></i> </button> 
               <div class="progress" data-aos="fade-up" data-aos-delay="300">
                 <span class="skill">{{skills[1].nombreSkill}} <i class="val">{{skills[1].nivel}}%</i></span>
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[1].nivel}}%"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[1].nivel}}%"></div>
               </div>
 
               <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[2].id)"><i class="far fa-edit"></i> </button> 
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[2].id)" (click)="identif(skills[2].id)"><i class="fa-solid fa-trash-can"></i> </button> 
               <div class="progress" data-aos="fade-up" data-aos-delay="450">
                 <span class="skill">{{skills[2].nombreSkill}} <i class="val">{{skills[2].nivel}}%</i></span>
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[2].nivel}}%"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[2].nivel}}%"></div>
               </div>
         </div>
 
         <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[3].id)"><i class="far fa-edit"></i> </button> 
+          <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[3].id)" (click)="identif(skills[3].id)"><i class="fa-solid fa-trash-can"></i> </button> 
             <div class="progress" data-aos="fade-up" data-aos-delay="150">
               <span class="skill">{{skills[3].nombreSkill}} <i class="val">{{skills[3].nivel}}%</i></span>
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[3].nivel}}%"></div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[3].nivel}}%"></div>
             </div>
 
             <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[4].id)"><i class="far fa-edit"></i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[4].id)" (click)="identif(skills[4].id)"><i class="fa-solid fa-trash-can"></i> </button> 
             <div class="progress" data-aos="fade-up" data-aos-delay="300">
               <span class="skill">{{skills[4].nombreSkill}} <i class="val">{{skills[4].nivel}}%</i></span>
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[4].nivel}}%"></div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[4].nivel}}%"></div>
             </div>
 
             <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openSkill(skillEdit)" (click)="identif(skills[5].id)"><i class="far fa-edit"></i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteSkill(skills[5].id)" (click)="identif(skills[5].id)"><i class="fa-solid fa-trash-can"></i> </button> 
             <div class="progress" data-aos="fade-up" data-aos-delay="450">
               <span class="skill">{{skills[5].nombreSkill}} <i class="val">{{skills[5].nivel}}%</i></span>
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[5].nivel}}%"></div>
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{skills[5].nivel}}%"></div>
             </div>
       </div>
 

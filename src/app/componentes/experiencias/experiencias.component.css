@@ -49,3 +49,9 @@
     background: #fff;
     border: 2px solid #1f5297;
   }
+
+  a {
+    padding-top: 5px;
+    font-size: 13px;
+    color: #1f5297;
+}

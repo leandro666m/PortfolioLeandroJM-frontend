@@ -58,5 +58,14 @@ export class ExperienciasComponent implements OnInit {
     );  
   } 
 
+  onDeleteExp( id: number ): void{ 
+    this.personaServ.deleteExp(id).subscribe(
+      data => { this.toastr.success('Eliminado', 'OK', {timeOut: 3000, positionClass: 'toast-top-center'});
+        this.cargarExperiencias();  },
+      err => { this.toastr.error(err.error.mensaje, 'Fail', { timeOut: 3000, positionClass: 'toast-top-center',});
+    console.log(err); }
+    );
+  
+}
 
 }

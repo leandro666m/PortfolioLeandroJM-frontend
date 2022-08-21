@@ -34,6 +34,10 @@ public getExperiencias(): Observable<Experiencia[]> {
 public updateExperiencia( id: number, experiencia: Experiencia ): Observable<any> {
   return this.httpCliente.put<any>( this.URL + `editarExp/${id}`, experiencia );
 }
+public deleteExp(id: number): Observable<any> {
+  return this.httpCliente.delete<any>(this.URL + `borrarExp/${id}`);
+}
+
 //-------------Educacion------------------------------------------------------------
 
 public getEducacion(): Observable<Educacion[]> {
@@ -43,7 +47,7 @@ public updateEducacion( id: number, educ: Educacion ): Observable<any> {
   return this.httpCliente.put<any>( this.URL + `editarEduc/${id}`, educ );
 }
 
-public delete(id: number): Observable<any> {
+public deleteEduc(id: number): Observable<any> {
   return this.httpCliente.delete<any>(this.URL + `borrarEduc/${id}`);
 }
 
@@ -55,7 +59,9 @@ public getSkills(): Observable<Skill[]> {
 public updateSkill( id: number, skill: Skill ): Observable<any> {
   return this.httpCliente.put<any>( this.URL + `editarSkill/${id}`, skill );
 }
-
+public deleteSkill(id: number): Observable<any> {
+  return this.httpCliente.delete<any>(this.URL + `borrarSkill/${id}`);
+}
 //-------------Proyectos------------------------------------------------------------
 
 /* public getProyectos(): Observable<Proyectos[]> {

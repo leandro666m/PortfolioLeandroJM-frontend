@@ -38,7 +38,7 @@
   }
   .portfolio .portfolio-wrap::before {
     content: "";
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(247, 235, 252, 0.5);
     position: absolute;
     left: 0;
     right: 0;
@@ -61,7 +61,7 @@
   }
   .portfolio .portfolio-wrap .portfolio-links a {
     color: #fff;
-    font-size: 28px;
+    font-size: 18px;
     text-align: center;
     background: rgba(20, 157, 221, 0.75);
     transition: 0.3s;

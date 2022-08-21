@@ -10,57 +10,47 @@
         <div class="col-lg-6" data-aos="fade-up">
           <h3 class="resume-title">Resumen</h3>
           
-          <div class="resume-item pb-0">
-            <span *ngFor="let exp of experiencia">
-              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" 
-               (click)="openExp(expEdit)" (click)="identif(exp.id)"><i class="far fa-edit"></i> Editar</button> 
-                      <h4>{{exp.puesto}}</h4>
-                      <h5>{{exp.lugar}}</h5>
-                      <p><em>{{exp.fecha}}.</em></p>
-                      <p>{{exp.descripcion}}</p>
-            </span>
+          <div *ngIf="experiencia[0]"  class="resume-item pb-0">
+            <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openExp(expEdit)" (click)="identif(experiencia[0].id)"><i class="far fa-edit"></i> </button> 
+            <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteExp(exp.id)" (click)="identif(experiencia[0].id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                    <h4>{{experiencia[0].puesto}}</h4>
+                    <h5> <a target="_blank" href={{experiencia[0].url}}> {{experiencia[0].lugar}} </a> </h5>
+                    <p><em>{{experiencia[0].fecha}}.</em></p>
+                    <p>{{experiencia[0].descripcion}}</p>
+        </div>
+
+        <div *ngIf="experiencia[1]"  class="resume-item pb-0">
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openExp(expEdit)" (click)="identif(experiencia[1].id)"><i class="far fa-edit"></i> </button> 
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteExp(exp.id)" (click)="identif(experiencia[1].id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                      <h4>{{experiencia[1].puesto}}</h4>
+                      <h5> <a target="_blank" href={{experiencia[1].url}}> {{experiencia[1].lugar}} </a> </h5>
+                      <p><em>{{experiencia[1].fecha}}.</em></p>
+                      <p>{{experiencia[1].descripcion}}</p>
           </div>
 
-    <!--       <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Master of Fine Arts &amp; Graphic Design</h4>
-            <h5>2015 - 2016</h5>
-            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-            <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-          </div>
-          <div class="resume-item">
-            <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-            <h5>2010 - 2014</h5>
-            <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-          </div>
         </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div class="resume-item">
-            <h4>Senior graphic design specialist</h4>
-            <h5>2019 - Present</h5>
-            <p><em>Experion, New York, NY </em></p>
-            <ul>
-              <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-              <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-              <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-              <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-            </ul>
+
+        <div *ngIf="experiencia[2]"  class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          
+            <div class="resume-item pb-0">
+              <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openExp(expEdit)" (click)="identif(experiencia[2].id)"><i class="far fa-edit"></i> </button> 
+              <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteExp(exp.id)" (click)="identif(experiencia[2].id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                      <h4>{{experiencia[2].puesto}}</h4>
+                      <h5> <a target="_blank" href={{experiencia[2].url}}> {{experiencia[2].lugar}} </a> </h5>
+                      <p><em>{{experiencia[2].fecha}}.</em></p>
+                      <p>{{experiencia[2].descripcion}}</p>
           </div>
-          <div class="resume-item">
-            <h4>Graphic design specialist</h4>
-            <h5>2017 - 2018</h5>
-            <p><em>Stepping Stone Advertising, New York, NY</em></p>
-            <ul>
-              <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-              <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-            </ul>
-          </div> -->
-        </div>
-      </div>
+  
+            <div *ngIf="experiencia[3]" class="resume-item pb-0">
+                <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openExp(expEdit)" (click)="identif(experiencia[3].id)"><i class="far fa-edit"></i> </button> 
+                <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteExp(exp.id)" (click)="identif(experiencia[3].id)"><i class="fa-solid fa-trash-can"></i> </button> 
+                        <h4>{{experiencia[3].puesto}}</h4>
+                        <h5> <a target="_blank" href={{experiencia[3].url}}> {{experiencia[3].lugar}} </a> </h5>
+                        <p><em>{{experiencia[3].fecha}}.</em></p>
+                        <p>{{experiencia[3].descripcion}}</p>
+            </div>
+          </div>
+      </div> <!-- row -->
 
     </div>
   </section>
@@ -88,12 +78,17 @@
         </div>
 
         <div class="input-group mb-3 form-group">
+          <span class="input-group-text" id="inputGroup-sizing-default">URL</span>
+          <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].url" name="URL"> <span class="focus-miInputBox"></span>
+        </div>
+
+        <div class="input-group mb-3 form-group">
           <span class="input-group-text" id="inputGroup-sizing-default">Fecha</span>
           <input type="text" class="form-control miInputBox" [(ngModel)]="experiencia[idselecc].fecha" name="Fecha"> <span class="focus-miInputBox"></span>
         </div>
 
          <div class="form-floating form-group">
-          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 100px"
+          <textarea class="form-control miInputBox" placeholder="Descripción" id="floatingTextarea2" style="height: 200px"
             [(ngModel)]="experiencia[idselecc].descripcion" name="Descripción"> </textarea>     <span class="focus-miInputBox"></span>
           <label for="floatingTextarea2">Descripción</label>
         </div> 

@@ -1,4 +1,26 @@
 
+.modal-content{
+  margin-left: 35%;
+}
+.canvasCursos{
+    background: rgb(250, 193, 193);
+    margin: 35px;
+  }
+ 
+  .cursos {
+    padding: 5px;
+    background: rgb(182, 15, 15);
+ 
+  }
+
+  .offcanvas-title{
+    
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin: 35px;
+    
+  }
 .educacion .icon-box {
     margin-bottom: 20px;
   }
@@ -43,3 +65,12 @@
     font-size: 14px;
   }
   
+  .capacitacionesLink {
+    color: #149ddd;
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 4%;
+}
+
+
+ 

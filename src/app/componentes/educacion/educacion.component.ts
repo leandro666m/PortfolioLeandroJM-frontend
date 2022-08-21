@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { Persona } from 'src/app/modelos/persona.model';
@@ -14,7 +14,7 @@ import { Educacion } from 'src/app/modelos/educacion.model';
 })
 export class EducacionComponent implements OnInit {
 
-  constructor( private toastr: ToastrService, public personaServ: PersonaService,
+  constructor( private toastr: ToastrService, public personaServ: PersonaService, private modalService: NgbModal,
     public offcanvasService: NgbOffcanvas, private router: Router ) { }
 
     @Input() isAdmin: boolean;
@@ -33,7 +33,7 @@ export class EducacionComponent implements OnInit {
         this.educacion = data; ; this.load=true;
       },
       (err) => {
-        this.toastr.error(err.error.mensaje, 'Error exp.component', {
+        this.toastr.error(err.error.mensaje, 'Error', {
           timeOut: 3000,
           positionClass: 'toast-top-center',
         });
@@ -49,6 +49,11 @@ export class EducacionComponent implements OnInit {
     this.idselecc = id;
   }
 
+  openEducCursos( educCursos: TemplateRef<any>) {
+    this.modalService.open( educCursos, { size: 'xl'});
+  }
+
+
   onUpdateEduc( ): void{
     this.personaServ.updateEducacion( this.idselecc, this.educacion[this.idselecc] ).subscribe(
       data => { this.toastr.success('Actualizado', '', {timeOut: 3000, positionClass: 'toast-top-center'});
@@ -60,7 +65,7 @@ export class EducacionComponent implements OnInit {
   } 
 
   onDeleteEduc( id: number ): void{ 
-      this.personaServ.delete(id).subscribe(
+      this.personaServ.deleteEduc(id).subscribe(
         data => { this.toastr.success('Eliminado', 'OK', {timeOut: 3000, positionClass: 'toast-top-center'});
           this.cargarEducacion();  },
         err => { this.toastr.error(err.error.mensaje, 'Fail', { timeOut: 3000, positionClass: 'toast-top-center',});
