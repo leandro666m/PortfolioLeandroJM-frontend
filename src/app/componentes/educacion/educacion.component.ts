@@ -30,7 +30,8 @@ export class EducacionComponent implements OnInit {
   public cargarEducacion(): void {
     this.personaServ.getEducacion().subscribe(
       (data) => {
-        this.educacion = data; ; this.load=true;
+        this.educacion = data;
+         this.load=true;
       },
       (err) => {
         this.toastr.error(err.error.mensaje, 'Error', {
@@ -53,7 +54,6 @@ export class EducacionComponent implements OnInit {
     this.modalService.open( educCursos, { size: 'xl'});
   }
 
-
   onUpdateEduc( ): void{
     this.personaServ.updateEducacion( this.idselecc, this.educacion[this.idselecc] ).subscribe(
       data => { this.toastr.success('Actualizado', '', {timeOut: 3000, positionClass: 'toast-top-center'});
@@ -74,5 +74,8 @@ export class EducacionComponent implements OnInit {
     
   }
 
+
+    
+  
 
 }

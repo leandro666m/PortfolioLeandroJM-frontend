@@ -10,7 +10,7 @@
           (click)="identif(educacion[0].id)"><i class="far fa-edit"></i> </button>
         <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[0].id)"
           (click)="identif(educacion[0].id)"><i class="fa-solid fa-trash-can"></i> </button>
-        <div class="icon"><i class="bi bi-briefcase"></i></div>
+        <div class="icon"> <img src="./assets/img/logo_iscc.png" alt="" class="img-fluid rounded-circle"> </div>
         <h4 class="title">{{educacion[0].titulo}}</h4>
         <h6 class="title"><a target="_blank" href={{educacion[0].url}}> {{educacion[0].lugar}} </a></h6>
         <p class="title">{{educacion[0].fecha}}</p>
@@ -23,7 +23,7 @@
           (click)="identif(educacion[1].id)"><i class="far fa-edit"></i> </button>
         <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[1].id)"
           (click)="identif(educacion[1].id)"><i class="fa-solid fa-trash-can"></i> </button>
-        <div class="icon"><i class="bi bi-briefcase"></i></div>
+          <div class="icon"> <img src="./assets/img/logouner.png" alt="" class="img-fluid rounded-circle"> </div>
         <h4 class="title">{{educacion[1].titulo}}</h4>
         <h6 class="title"> <a target="_blank" href={{educacion[1].url}}> {{educacion[1].lugar}}</a></h6>
         <p class="title">{{educacion[1].fecha}}</p>
