@@ -1,46 +1,43 @@
-<section id="educacion" class="educacion" *ngIf="load">
+<section id="educacion" class="educacion"  *ngIf="load"> 
   <div class="container">
     <div class="section-title">
       <h2>Educación</h2>
     </div>
 
     <div class="row">
-      <div *ngIf="educacion[0]" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)"
-          (click)="identif(educacion[0].id)"><i class="far fa-edit"></i> </button>
-        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[0].id)"
-          (click)="identif(educacion[0].id)"><i class="fa-solid fa-trash-can"></i> </button>
-        <div class="icon"> <img src="./assets/img/logo_iscc.png" alt="" class="img-fluid rounded-circle"> </div>
-        <h4 class="title">{{educacion[0].titulo}}</h4>
-        <h6 class="title"><a target="_blank" href={{educacion[0].url}}> {{educacion[0].lugar}} </a></h6>
-        <p class="title">{{educacion[0].fecha}}</p>
-        <p class="description">{{educacion[0].descripcion}}</p>
+       <div *ngIf="educacion[0]" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200"> 
+        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[0].id)"><i class="far fa-edit"></i> </button>
+        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[0].id)" (click)="identif(educacion[0].id)"><i class="fa-solid fa-trash-can"></i> </button>
+        
+          <div class="icon"> <img src="./assets/img/logo_iscc.png" alt="" class="img-fluid rounded-circle"> </div>
+          <h4 class="title">{{educacion[0].titulo}}</h4>
+          <h6 class="title"><a target="_blank" href={{educacion[0].url}}> {{educacion[0].lugar}} </a></h6>
+          <p class="title">{{educacion[0].fecha}}</p>
+          <p class="descripcion">{{educacion[0].descripcion}}</p>
       </div>
 
 
       <div *ngIf="educacion[1]" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)"
-          (click)="identif(educacion[1].id)"><i class="far fa-edit"></i> </button>
-        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[1].id)"
-          (click)="identif(educacion[1].id)"><i class="fa-solid fa-trash-can"></i> </button>
+        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[1].id)"><i class="far fa-edit"></i> </button>
+        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[1].id)" (click)="identif(educacion[1].id)"><i class="fa-solid fa-trash-can"></i> </button>
+          
           <div class="icon"> <img src="./assets/img/logouner.png" alt="" class="img-fluid rounded-circle"> </div>
-        <h4 class="title">{{educacion[1].titulo}}</h4>
-        <h6 class="title"> <a target="_blank" href={{educacion[1].url}}> {{educacion[1].lugar}}</a></h6>
-        <p class="title">{{educacion[1].fecha}}</p>
-        <p class="description">{{educacion[1].descripcion}}</p>
+          <h4 class="title">{{educacion[1].titulo}}</h4>
+          <h6 class="title"> <a target="_blank" href={{educacion[1].url}}> {{educacion[1].lugar}}</a></h6>
+          <p class="title">{{educacion[1].fecha}}</p>
+          <p class="descripcion">{{educacion[1].descripcion}}</p>
       </div>
 
 
       <div *ngIf="educacion[2]" class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)"
-          (click)="identif(educacion[2].id)"><i class="fa-solid fa-pencil"></i> </button>
-        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[2].id)"
-          (click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button>
-        <div class="icon"><i class="bi bi-briefcase"></i></div>
-        <h4 class="title">{{educacion[2].titulo}}</h4>
-        <h6 class="title"> <a target="_blank" href={{educacion[2].url}}> {{educacion[2].lugar}}</a> </h6>
-        <p class="title">{{educacion[2].fecha}}</p>
-        <p class="description">{{educacion[2].descripcion}}</p>
+        <button *ngIf="isAdmin" class="btn btn-outline-warning" routerLink="" (click)="openEduc(educEdit)" (click)="identif(educacion[2].id)"><i class="fa-solid fa-pencil"></i> </button>
+        <button *ngIf="isAdmin" class="btn btn-outline-danger" routerLink="" (click)="onDeleteEduc(educacion[2].id)"(click)="identif(educacion[2].id)"><i class="fa-solid fa-trash-can"></i> </button>
+        
+          <div class="icon"><i class="bi bi-briefcase"></i></div>
+          <h4 class="title">{{educacion[2].titulo}}</h4>
+          <h6 class="title"> <a target="_blank" href={{educacion[2].url}}> {{educacion[2].lugar}}</a> </h6>
+          <p class="title">{{educacion[2].fecha}}</p>
+          <p class="descripcion">{{educacion[2].descripcion}}</p>
       </div>
 
     </div>
@@ -107,69 +104,33 @@
 
 </ng-template>
 
-<ng-template #educCursos>
-  <div data-bs-scroll="true" class="canvasCursos" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" >
-    
+<ng-template #educCursos let-c="close" let-d="dismiss">
+  <div data-bs-scroll="true" class="modal-dialog  canvasCursos" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" >
+    <div class="modal-dialog-content">
+
     <div class="offcanvas-header">
       <h4 class="offcanvas-title">Cursos y Capacitaciones</h4>
     </div>
 
     <div class="modal-body">
       <div class="container-fluid">
+        
         <div class="row">
-          <div class="col-sm-12">
-            Level 1: .col-sm-12
-            <div class="row">
-              <div class="col-md-4 cursos">
-                div class="col-md-4"
-              </div>
-              <div class="col-md-4 cursos">
-                div class="col-md-4"
-              </div>
-              <div class="col-md-4 cursos">
-                div class="col-md-4"
-              </div>
-            </div>
+          <div class="col-md-4 my-1 mx-auto" *ngFor="let i of cursos">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <h4 class="tituloCurso">{{i.titulo}}</h4>
+                          <p class="descripcionCurso"> <b>{{i.fecha}} </b> - {{i.descripcion}} </p>
+                        </div>
+                      </div>
+                    </div>
           </div>
-        </div>
-      </div> 
+        </div> <!-- row -->
+      </div>
+    </div> 
+
     </div>
-    <!-- 
-    <div class="row col-lg-3 col-md-6 " data-aos="fade-up">
-      
-        <div class="cursos">
-          <div class="icon"><i class="bi bi-briefcase"></i></div>
-          <h4 class="title">titulo</h4>
-          <h6 class="title">lugar</h6>
-          <p class="title">fecha</p>
-          <p class="description">descripcion</p>
-        </div>
-     
-      
-        <div class="cursos">
-          <div class="icon"><i class="bi bi-briefcase"></i></div>
-          <h4 class="title">titulo</h4>
-          <h6 class="title">lugar</h6>
-          <p class="title">fecha</p>
-          <p class="description">descripcion</p>
-        </div>
-     
-
-
-
-      
-        <div class="cursos">
-          <div class="icon"><i class="bi bi-briefcase"></i></div>
-          <h4 class="title">titulo</h4>
-          <h6 class="title">lugar</h6>
-          <p class="title">fecha</p>
-          <p class="description">descripcion</p>
-        </div>
-   
-    </div>
- -->
-
-
 
   </div>
 

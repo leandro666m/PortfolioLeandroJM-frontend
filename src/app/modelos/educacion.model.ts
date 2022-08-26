@@ -4,5 +4,5 @@ export class Educacion {
     fecha: string;
     titulo: string;
     descripcion: string;
-
+esCurso: boolean;
 }

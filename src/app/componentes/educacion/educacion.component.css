@@ -1,10 +1,8 @@
 
-.modal-content{
-  margin-left: 35%;
-}
+
 .canvasCursos{
-    background: rgb(250, 193, 193);
-    margin: 35px;
+    background: rgb(253, 239, 253);
+    margin: 15px;
   }
  
   .cursos {
@@ -41,12 +39,12 @@
     font-size: 24px;
     line-height: 0;
   }
-  .educacion .icon-box:hover .icon {
+  /* .educacion .icon-box:hover .icon {
     background: #fff;
   }
   .educacion .icon-box:hover .icon i {
     color: #149ddd;
-  }
+  } */
   .educacion .title {
     margin-left: 80px;
     font-weight: 700;
@@ -59,7 +57,7 @@
   .educacion .title a:hover {
     color: #149ddd;
   }
-  .educacion .description {
+  .educacion .descripcion {
     margin-left: 80px;
     line-height: 24px;
     font-size: 14px;
@@ -72,5 +70,13 @@
     margin-left: 4%;
 }
 
+.tituloCurso {
+  font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.descripcionCurso {
+  font-size: 13px;
+}
 
  

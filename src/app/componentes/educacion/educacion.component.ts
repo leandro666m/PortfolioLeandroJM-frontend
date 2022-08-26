@@ -14,12 +14,14 @@ import { Educacion } from 'src/app/modelos/educacion.model';
 })
 export class EducacionComponent implements OnInit {
 
-  constructor( private toastr: ToastrService, public personaServ: PersonaService, private modalService: NgbModal,
-    public offcanvasService: NgbOffcanvas, private router: Router ) { }
+  constructor( private toastr: ToastrService, public personaServ: PersonaService, 
+    private modalService: NgbModal,public offcanvasService: NgbOffcanvas, 
+    private router: Router ) { }
 
     @Input() isAdmin: boolean;
     tiltSettings=({ scale: 1.1 });
     educacion: Educacion[] =[]; 
+    cursos: Educacion[] =[];
     idselecc: number;
     load: boolean;
 
@@ -29,20 +31,17 @@ export class EducacionComponent implements OnInit {
 
   public cargarEducacion(): void {
     this.personaServ.getEducacion().subscribe(
-      (data) => {
-        this.educacion = data;
-         this.load=true;
-      },
-      (err) => {
-        this.toastr.error(err.error.mensaje, 'Error', {
-          timeOut: 3000,
-          positionClass: 'toast-top-center',
-        });
-        this.router.navigate(['/']);
-      }
-    );
+      (data) => { data.forEach( data => { if(!data.esCurso) {
+                                            this.educacion.push(data); }
+                                          else{ this.cursos.push(data); }
+                                        } )
+                  this.load=true; 
+                } ,
+      (err) => { this.toastr.error(err.error.mensaje, 'Error', {timeOut: 3000,positionClass: 'toast-top-center',});
+        this.router.navigate(['/']);      }
+    )
   }
-
+   
   openEduc( educEdit: TemplateRef<any>) {
     this.offcanvasService.open( educEdit, { position: 'end' });
   }
@@ -51,7 +50,8 @@ export class EducacionComponent implements OnInit {
   }
 
   openEducCursos( educCursos: TemplateRef<any>) {
-    this.modalService.open( educCursos, { size: 'xl'});
+    this.modalService.open( educCursos, { size: 'lg'});
+    
   }
 
   onUpdateEduc( ): void{
@@ -68,7 +68,7 @@ export class EducacionComponent implements OnInit {
       this.personaServ.deleteEduc(id).subscribe(
         data => { this.toastr.success('Eliminado', 'OK', {timeOut: 3000, positionClass: 'toast-top-center'});
           this.cargarEducacion();  },
-        err => { this.toastr.error(err.error.mensaje, 'Fail', { timeOut: 3000, positionClass: 'toast-top-center',});
+        err => { this.toastr.error(err.error.mensaje, 'Error', { timeOut: 3000, positionClass: 'toast-top-center',});
       console.log(err); }
       );
     
