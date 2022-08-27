@@ -13,7 +13,8 @@ import { Skill } from '../modelos/skill.model';
 export class PersonaService {
 
   
-URL = 'http://localhost:8080/portfolio/';
+//URL = 'http://localhost:8080/';
+URL ='https://portfolioljm.herokuapp.com/';
 
 constructor( private httpCliente: HttpClient ) { }
 

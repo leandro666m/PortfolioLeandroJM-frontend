@@ -8,8 +8,9 @@ import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
 
-  { path: 'portfolio', component: AppComponent },
-  { path: '', redirectTo: 'portfolio', pathMatch: 'full' },
+  //{ path: 'portfolio', component: AppComponent },
+  //{ path: '', redirectTo: 'portfolio', pathMatch: 'full' },
+  { path: '',  component: AppComponent  },
   { path: '**', redirectTo: 'portfolio', pathMatch: 'full'  }
 
   
