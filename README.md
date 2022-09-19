@@ -20,3 +20,4 @@ Información:
 
 Estructura:
 -agregar un component 'Este proyecto' donde contar con diagramas e imágenes la estructura Front & Back End de este proyecto.
+-agregar la opcion para descargar el CV en pdf
